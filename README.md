@@ -21,7 +21,7 @@ log.Println("hello")
 log.SetPrefix("test")
 
 # new
-mylogger := New("./test.log", 2, "[test-log]")
+mylogger := log.New("./test.log", 2, "[test-log]")
 
 mylogger.Printf("hello")
 ```

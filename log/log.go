@@ -135,13 +135,13 @@ func GetFileInfo(file string) (string, string, string, string) {
 	return dir, ext, filename, basename
 }
 
-func FileNameToDateName(file string, time time.Time) string {
+func FileNameToDateName(file string, t time.Time) string {
 	dir, ext, _, basename := GetFileInfo(file)
-	return dir + "/" + basename + time.Format("-2006-01-02") + ext
+	return dir + "/" + basename + t.In(time.Local).Format("-2006-01-02") + ext
 }
 
 func FileNameToTodayName(file string) string {
-	return FileNameToDateName(file, time.Now())
+	return FileNameToDateName(file, time.Now().In(time.Local))
 }
 
 func Println(v ...interface{}) {
